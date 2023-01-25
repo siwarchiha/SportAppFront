@@ -1,0 +1,58 @@
+<div class="hero overlay" style="background-image: url('assets/images/bg_3.jpg');">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-9 mx-auto text-center">
+          <h1 class="text-white">AddPlayer</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+    
+    <div class="site-section">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12">
+              <form action="#" [formGroup]="AddPlayerForm">
+                
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="Name"  formControlName="name">
+                </div>
+                <div *ngIf="AddPlayerForm.controls['name'].invalid && (AddPlayerForm.controls['name'].dirty || AddPlayerForm.controls['name'].touched)">
+                  <div *ngIf="AddPlayerForm.controls['name'].errors.required">  name is required </div>
+                  <div *ngIf="AddPlayerForm.controls['name'].errors.minlength">  name must have at least 5 chars </div>
+                  <div *ngIf="AddPlayerForm.controls['name'].errors.maxlength"> Password must have max 10 </div>
+
+    
+                </div>
+                <div class="form-group">
+                    <input type="number" class="form-control" placeholder="number"  formControlName="numberPlayer">
+                  </div>
+                  <div *ngIf="AddPlayerForm.controls['numberPlayer'].errors?.pattern" >Number Only</div>
+                  <div class="form-group">
+                    <input type="number" class="form-control" placeholder="age"  formControlName="age">
+                  </div>
+                  <div *ngIf="AddPlayerForm.controls['age'].errors?.pattern" >Number Only</div>
+                  <div class="form-group">
+                      
+                
+                    <label for="pet-select">Postion:   </label>
+
+                        <select name="positions" id="position-select"  formControlName="position">
+                            <option value="">--Please choose a position--</option>
+                            <option value="GK">GK</option>
+                            <option value="ATK">ATK</option>
+                            <option value="DEF">DEF</option>
+                            <option value="MID">MID</option>
+                            
+                        </select>
+                    </div>
+                
+                <div class="form-group">
+                  <input type="submit" (click)="addPlayer()" class="btn btn-primary py-3 px-5" value="addPlayer">
+                </div>
+              </form>  
+            </div>
+
+          </div>
+        </div>
+      </div>
